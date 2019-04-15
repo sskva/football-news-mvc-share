@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Добавление новости</title>
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .row1 {
+            margin-top: 10px;
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="edit-form" action="add.html" th:action="@{/add}" th:object="${footballNew}" th:method="post">
+    <h1>Добавление новости</h1>
+
+    <div class="row">
+        <label for="holder-input">Text:</label>
+        <input id="holder-input" name="textNew" type="text" th:field="*{text}"/>
+    </div>
+
+    <div class="row" >
+        <button type="submit">Добавить</button>
+    </div>
+</form>
+
+</body>
+</html>

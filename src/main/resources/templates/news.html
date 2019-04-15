@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of all persons</title>
+    <style type="text/css">
+        body {
+            padding: 30px;
+        }
+        .footballNews, .footballNews td {
+            border: 1px solid lightgray;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+<h1>Новости футбольного мира</h1>
+<a th:href="@{/add}">Добавить новость</a>
+
+<table class="footballNews">
+    <thead>
+    <tr>
+        <th>дата</th>
+        <th>новость</th>
+        <th>редактирование</th>
+        <th>удаление</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="footballNews : ${footballNewList}">
+        <td th:text="${footballNews.date}"></td>
+        <td th:text="${footballNews.text}"></td>
+        <td>
+            <a th:href="@{/edit(id=${footballNews.id})}" href="edit.html">редактировать</a>
+        </td>
+        <td>
+            <a th:href="@{/delete(id=${footballNews.id})}">удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
